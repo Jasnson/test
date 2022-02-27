@@ -1,2 +1,2 @@
-# test
-This is a test
+# 代码储存
+这个仓库用于储存学习到的Python代码
