@@ -1,0 +1,13 @@
+#删除数据框的一列方法
+df.drop('column name', axis = 1)
+
+#日期处理的一个方法
+df.date = pd.to_datetime(df.date)
+df.date.apply(lambda x: x.year*100 + x.month)
+
+#将长面板数据化成短面板数据
+(1)ensure that there are 3 columns in total: "ym"、"code"、"ret"
+(2)
+df.pivot(idnex = "ym", columns = "code", values = "ret")
+df.to_csv("table.csv")
+df1 = pd.read_csv("table.csv")
