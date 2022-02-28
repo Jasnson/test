@@ -1,18 +1,38 @@
-*#删除数据框的一列方法*
+#删除数据框的一列方法
+code:
 df.drop('column name', axis = 1)
 
+#给数据框的某些列重命名
+code:
+df.rename(columns = {'col1':'new_col1','col2':'new_col2',...,'coln':'new_coln'})
+
 #日期处理的一个方法
+code:
 df.date = pd.to_datetime(df.date)
 df.date.apply(lambda x: x.year*100 + x.month)
 
-#将长面板数据化成短面板数据
-(1)ensure that there are 3 columns in total: "ym"、"code"、"ret"
-(2)
+##将长面板数据化成短面板数据
+(1)情景：将包含日期、股票代码、收益率的长面板数据转化成短面板数据
+code:
 df.pivot(idnex = "ym", columns = "code", values = "ret")
 df.to_csv("table.csv")
 df1 = pd.read_csv("table.csv")
 
-#多条件筛选行的方式
+##多条件筛选行的方式
 (1)情景：筛选所有A股的股票——通过市场类型（筛选出市场类型为1、4、16、32的股票）
 code:
 df[(df['Mkttype'] == 1)|(df['mkttype'] == 4)|(df['mkttype'] == 16)|(df['mkttype'] == 32)]
+
+#将某一列设置成索引
+code:
+df.set_index(['column'], inplace = True)
+
+#将一个表格的全部数据从字符串格式转化成int格式
+code:
+df.columns = map(int, df.columns)
+
+#求两个列表的差集、并集、交集
+code:
+(1)差集: set(list2).difference(set(list1))  其实可以不用set,但是考虑可视性。
+(2)并集: set(list2).union(set(list1))
+(3)交集: set(list2).intersection(set(list1))
