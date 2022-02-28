@@ -11,3 +11,8 @@ df.date.apply(lambda x: x.year*100 + x.month)
 df.pivot(idnex = "ym", columns = "code", values = "ret")
 df.to_csv("table.csv")
 df1 = pd.read_csv("table.csv")
+
+#多条件筛选行的方式
+(1)情景：筛选所有A股的股票——通过市场类型（筛选出市场类型为1、4、16、32的股票）
+code:
+df[(df['Mkttype'] == 1)|(df['mkttype'] == 4)|(df['mkttype'] == 16)|(df['mkttype'] == 32)]
