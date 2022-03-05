@@ -36,3 +36,11 @@ code:
 (1)差集: set(list2).difference(set(list1))  其实可以不用set,但是考虑可视性。
 (2)并集: set(list2).union(set(list1))
 (3)交集: set(list2).intersection(set(list1))
+
+#根据列名来筛选多列
+情景：prof中将me包含的所有股票代码的列筛选出来
+code:
+prof[me.columns]
+情景2：筛选一些名字特定的列
+code:
+prof[['name1','name2','name3',...,'namen']]
