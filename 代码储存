@@ -44,3 +44,25 @@ prof[me.columns]
 情景2：筛选一些名字特定的列
 code:
 prof[['name1','name2','name3',...,'namen']]
+
+#生成一个只有空值的数据框，列名和索引与现有的相同
+code:
+df2 = pd.DataFrame(index = df1.index, columns = df1.columns)
+
+#将两个数据框合并
+code:
+df3 = pd.concat([df1, df2])  ----注意要加中括号
+
+#生成一个现有数据框的副本，目的是要独立于原有数据框
+code:
+df2 = df1.copy()    -----注意不能用df2 = df1, 因为这样两者公用一个空间
+
+#时间上的运算
+情景1：将整数化为时间（比如199901化为1999-01-xx）
+code:
+dt = 199901
+dt1 = pd.to_datetime(str(dt), format = '%Y%m')
+情景2：计算与XXXX-XX-XX时间点相差Y的另一个时间点
+code:
+import datetime
+dt2 = dt1 + datetime.timedelta(Y) 
