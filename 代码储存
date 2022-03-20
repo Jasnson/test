@@ -66,3 +66,27 @@ dt1 = pd.to_datetime(str(dt), format = '%Y%m')
 code:
 import datetime
 dt2 = dt1 + datetime.timedelta(Y) 
+
+#将Dataframe中的负数替换为特定值（比如空值）
+code:
+df[df<0] = np.nan
+
+#列的重命名
+情景1：读取时重命名
+code:
+new_col = ['new1', 'new2',... , 'newn']
+pd.read_csv('data', names = new_col, header=0)
+情景2：全部重命名
+code:
+new_col = ['new1', 'new2',... , 'newn']
+dataframe.columns = new_col
+情景3：部分重命名
+code:
+dataframe.rename(columns = {'old1':'new1','old2':'new2',...,'oldn':'newn'})
+
+#数据框相乘
+code:
+df1*df2*df3*...*dfn
+attention:
+（1）数据框的行数必须相同
+（2）所有数据框不能有非公共列
