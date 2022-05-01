@@ -24,8 +24,10 @@ code:
 df[(df['Mkttype'] == 1)|(df['mkttype'] == 4)|(df['mkttype'] == 16)|(df['mkttype'] == 32)]
 
 #将某一列设置成索引
-code:
+code1（已有列）:
 df.set_index(['column'], inplace = True)
+code2（新创建一个列）：
+df.index = list1
 
 #将一个表格的全部数据从字符串格式转化成int格式
 code:
