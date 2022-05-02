@@ -4,7 +4,7 @@ df.drop('column name', axis = 1)
 
 #给数据框的某些列重命名
 code:
-df.rename(columns = {'col1':'new_col1','col2':'new_col2',...,'coln':'new_coln'})
+df = df.rename(columns = {'col1':'new_col1','col2':'new_col2',...,'coln':'new_coln'})
 
 #日期处理的一个方法
 code:
